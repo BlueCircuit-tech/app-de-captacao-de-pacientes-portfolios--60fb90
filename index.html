@@ -564,6 +564,317 @@
     </div>
 </section>
 
+    <section data-tela="detalhe-do-tratamento" class="hidden">
+      <div class="p-4 pb-6 space-y-5">
+        <!-- Carrossel de imagens -->
+        <div class="relative rounded-2xl overflow-hidden shadow-lg">
+          <div id="detalhe_do_tratamento_carrossel" class="flex transition-transform duration-500 ease-out">
+            <div class="w-full flex-shrink-0 h-64 bg-gradient-to-br from-marca-100 to-marca-200 flex items-center justify-center">
+              <div class="text-center">
+                <svg class="w-16 h-16 mx-auto text-marca-700 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                <span class="text-marca-800 text-sm font-medium">Antes do Tratamento</span>
+              </div>
+            </div>
+            <div class="w-full flex-shrink-0 h-64 bg-gradient-to-br from-marca-50 to-marca-100 flex items-center justify-center">
+              <div class="text-center">
+                <svg class="w-16 h-16 mx-auto text-marca-700 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <span class="text-marca-800 text-sm font-medium">Resultado após 8 sessões</span>
+              </div>
+            </div>
+            <div class="w-full flex-shrink-0 h-64 bg-gradient-to-br from-marca-100 to-marca-300 flex items-center justify-center">
+              <div class="text-center">
+                <svg class="w-16 h-16 mx-auto text-marca-700 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                <span class="text-marca-800 text-sm font-medium">Ambiente Clínico</span>
+              </div>
+            </div>
+            <div class="w-full flex-shrink-0 h-64 bg-gradient-to-br from-marca-50 to-marca-200 flex items-center justify-center">
+              <div class="text-center">
+                <svg class="w-16 h-16 mx-auto text-marca-700 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                <span class="text-marca-800 text-sm font-medium">Equipamentos Utilizados</span>
+              </div>
+            </div>
+          </div>
+          <button onclick="detalhe_do_tratamento_carrossel_ant()" class="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 bg-white/90 rounded-full shadow flex items-center justify-center active:scale-90 transition-transform">
+            <svg class="w-5 h-5 text-marca-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+          </button>
+          <button onclick="detalhe_do_tratamento_carrossel_prox()" class="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 bg-white/90 rounded-full shadow flex items-center justify-center active:scale-90 transition-transform">
+            <svg class="w-5 h-5 text-marca-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </button>
+          <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5" id="detalhe_do_tratamento_pontos">
+            <span class="w-2 h-2 rounded-full bg-white"></span><span class="w-2 h-2 rounded-full bg-white/40"></span><span class="w-2 h-2 rounded-full bg-white/40"></span><span class="w-2 h-2 rounded-full bg-white/40"></span>
+          </div>
+        </div>
+
+        <!-- Info principal -->
+        <div class="flex items-start justify-between gap-3">
+          <div class="flex-1">
+            <h1 class="font-display text-xl font-bold text-marca-900 leading-tight">Fisioterapia Neurológica em Home Care</h1>
+            <p class="text-sm text-gray-500 mt-1">Tratamento especializado para reabilitação motora e cognitiva</p>
+          </div>
+          <button onclick="detalhe_do_tratamento_favoritar()" id="detalhe_do_tratamento_btn_fav" class="p-2.5 rounded-xl border border-gray-200 bg-white active:scale-90 transition-all hover:border-destaque hover:text-destaque">
+            <svg id="detalhe_do_tratamento_icone_fav" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+          </button>
+        </div>
+
+        <!-- Rating + duração -->
+        <div class="flex items-center gap-4 text-sm">
+          <div class="flex items-center gap-1">
+            <svg class="w-4 h-4 text-destaque" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <span class="font-bold text-marca-900">4,9</span>
+            <span class="text-gray-400">(47 avaliações)</span>
+          </div>
+          <span class="text-gray-300">|</span>
+          <div class="flex items-center gap-1 text-gray-600">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <span>60–90 min por sessão</span>
+          </div>
+        </div>
+
+        <!-- O que está incluído -->
+        <div class="card p-4">
+          <h2 class="font-display font-semibold text-marca-900 text-base mb-3">O que está incluído</h2>
+          <div class="space-y-2.5">
+            <div class="flex items-start gap-2.5">
+              <div class="w-5 h-5 rounded-full bg-marca-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-3 h-3 text-marca-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+              </div>
+              <span class="text-sm text-gray-700">Avaliação inicial personalizada com plano de tratamento</span>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <div class="w-5 h-5 rounded-full bg-marca-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-3 h-3 text-marca-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+              </div>
+              <span class="text-sm text-gray-700">Relatório fotográfico do progresso a cada 4 sessões</span>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <div class="w-5 h-5 rounded-full bg-marca-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-3 h-3 text-marca-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+              </div>
+              <span class="text-sm text-gray-700">Protocolo documentado com evolução por sessão</span>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <div class="w-5 h-5 rounded-full bg-marca-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-3 h-3 text-marca-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+              </div>
+              <span class="text-sm text-gray-700">Acompanhamento direto via WhatsApp com a equipe</span>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <div class="w-5 h-5 rounded-full bg-marca-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-3 h-3 text-marca-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+              </div>
+              <span class="text-sm text-gray-700">Laudo final com resultados obtidos</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Resultados e Portfólio -->
+        <div>
+          <h2 class="font-display font-semibold text-marca-900 text-base mb-3">Resultados e Portfólio</h2>
+          <div class="space-y-3">
+            <div onclick="abrirModal(detalhe_do_tratamento_caso_modal('marcia'), 'Caso: Marcia S.')" class="card p-3.5 active:scale-[0.98] transition-transform cursor-pointer">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-marca-200 to-destaque flex items-center justify-center flex-shrink-0">
+                  <span class="font-bold text-white text-sm">MS</span>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center gap-2">
+                    <span class="font-semibold text-sm text-marca-900">Marcia S.</span>
+                    <span class="badge bg-marca-100 text-marca-800 text-xs">Recuperação total</span>
+                  </div>
+                  <p class="text-xs text-gray-500 mt-0.5 line-clamp-1">"Após 12 sessões de reabilitação pós-AVC, recuperei a mobilidade do braço direito."</p>
+                </div>
+                <svg class="w-4 h-4 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              </div>
+            </div>
+
+            <div onclick="abrirModal(detalhe_do_tratamento_caso_modal('roberto'), 'Caso: Roberto A.')" class="card p-3.5 active:scale-[0.98] transition-transform cursor-pointer">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-destaque to-marca-800 flex items-center justify-center flex-shrink-0">
+                  <span class="font-bold text-white text-sm">RA</span>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center gap-2">
+                    <span class="font-semibold text-sm text-marca-900">Roberto A.</span>
+                    <span class="badge bg-destaque/10 text-destaque text-xs">Grande melhoria</span>
+                  </div>
+                  <p class="text-xs text-gray-500 mt-0.5 line-clamp-1">"O tratamento para dor lombar crônica reduziu minha dor em 80% após 8 semanas."</p>
+                </div>
+                <svg class="w-4 h-4 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              </div>
+            </div>
+
+            <div onclick="abrirModal(detalhe_do_tratamento_caso_modal('ana'), 'Caso: Ana P.')" class="card p-3.5 active:scale-[0.98] transition-transform cursor-pointer">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-marca-300 to-marca-600 flex items-center justify-center flex-shrink-0">
+                  <span class="font-bold text-white text-sm">AP</span>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center gap-2">
+                    <span class="font-semibold text-sm text-marca-900">Ana P.</span>
+                    <span class="badge bg-marca-100 text-marca-800 text-xs">Recuperação total</span>
+                  </div>
+                  <p class="text-xs text-gray-500 mt-0.5 line-clamp-1">"Pós-operatório de joelho com fisioterapia domiciliar. Voltando a caminhar sem dor em 6 semanas."</p>
+                </div>
+                <svg class="w-4 h-4 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Protocolo -->
+        <div class="card p-4">
+          <div class="flex items-center gap-2 mb-2">
+            <svg class="w-5 h-5 text-marca-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            <h2 class="font-display font-semibold text-marca-900 text-base">Protocolo do Tratamento</h2>
+          </div>
+          <p class="text-sm text-gray-600 leading-relaxed mb-3">O tratamento segue protocolo baseado em diretrizes da Associação Brasileira de Fisioterapia Neurológica (ABFIN), com etapas progressivas de reabilitação motora, exercícios terapêuticos funcionais e técnicas de estimulação neurocognitiva.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="badge bg-marca-50 text-marca-800">Avaliação inicial</span>
+            <span class="badge bg-marca-50 text-marca-800">Plano individualizado</span>
+            <span class="badge bg-marca-50 text-marca-800">Reavaliação quinzenal</span>
+            <span class="badge bg-marca-50 text-marca-800">Laudo final</span>
+          </div>
+        </div>
+
+        <!-- Preço -->
+        <div class="card p-4 bg-gradient-to-r from-marca-900 to-marca-800">
+          <div class="flex items-end justify-between">
+            <div>
+              <span class="text-marca-200 text-xs uppercase tracking-wider font-medium">Investimento por sessão</span>
+              <p class="text-2xl font-display font-bold text-white mt-1">R$ 280,00</p>
+              <p class="text-marca-300 text-xs mt-0.5">Pacote de 10 sessões: R$ 2.520,00</p>
+            </div>
+            <div class="text-right">
+              <span class="badge bg-destaque text-white text-xs">12x de R$ 233,33</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Profissional -->
+        <div class="card p-4">
+          <h2 class="font-display font-semibold text-marca-900 text-base mb-3">Profissional Responsável</h2>
+          <div class="flex items-center gap-3">
+            <div class="w-14 h-14 rounded-full bg-gradient-to-br from-marca-200 to-marca-500 flex items-center justify-center flex-shrink-0">
+              <span class="font-bold text-white text-lg">CF</span>
+            </div>
+            <div class="flex-1">
+              <p class="font-semibold text-sm text-marca-900">Dr. Carlos Fernando</p>
+              <p class="text-xs text-gray-500">CREFITO: 123456-F</p>
+              <p class="text-xs text-gray-500">Especialista em Neurologia · 8 anos de experiência</p>
+            </div>
+          </div>
+          <div class="flex gap-2 mt-3">
+            <button onclick="detalhe_do_tratamento_ver_perfil()" class="btn flex-1 text-sm py-2.5">Ver perfil completo</button>
+            <button onclick="mostrarTela('agendamento')" class="btn-destaque flex-1 text-sm py-2.5">Agendar avaliação</button>
+          </div>
+        </div>
+
+        <!-- Ações finais -->
+        <div class="flex gap-3 pt-1 pb-2">
+          <button onclick="detalhe_do_tratamento_compartilhar()" class="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl border border-gray-200 bg-white text-sm font-medium text-gray-700 active:scale-95 transition-all hover:border-marca-300 hover:text-marca-800">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 111.024 5.435l-6.632 3.316m6.632-6.632a3 3 0 11-1.024 5.435l6.632-3.316"/></svg>
+            Compartilhar
+          </button>
+          <button onclick="mostrarTela('confirmacao-e-pagamento')" class="flex-[2] btn-destaque text-center text-sm py-3 rounded-xl font-semibold active:scale-95 transition-all shadow-md hover:shadow-lg">
+            Agendar Tratamento
+          </button>
+        </div>
+      </div>
+
+      <script>
+        let detalhe_do_tratamento_slide = 0;
+        let detalhe_do_tratamento_total = 4;
+        let detalhe_do_tratamento_favoritado = false;
+
+        function detalhe_do_tratamento_carrossel_atualizar() {
+          const el = document.getElementById('detalhe_do_tratamento_carrossel');
+          if (el) el.style.transform = 'translateX(-' + (detalhe_do_tratamento_slide * 100) + '%)';
+          const pts = document.getElementById('detalhe_do_tratamento_pontos');
+          if (pts) {
+            const dots = pts.children;
+            for (let i = 0; i < dots.length; i++) {
+              dots[i].className = i === detalhe_do_tratamento_slide ? 'w-2 h-2 rounded-full bg-white' : 'w-2 h-2 rounded-full bg-white/40';
+            }
+          }
+        }
+
+        function detalhe_do_tratamento_carrossel_ant() {
+          detalhe_do_tratamento_slide = (detalhe_do_tratamento_slide - 1 + detalhe_do_tratamento_total) % detalhe_do_tratamento_total;
+          detalhe_do_tratamento_carrossel_atualizar();
+        }
+
+        function detalhe_do_tratamento_carrossel_prox() {
+          detalhe_do_tratamento_slide = (detalhe_do_tratamento_slide + 1) % detalhe_do_tratamento_total;
+          detalhe_do_tratamento_carrossel_atualizar();
+        }
+
+        function detalhe_do_tratamento_favoritar() {
+          detalhe_do_tratamento_favoritado = !detalhe_do_tratamento_favoritado;
+          const btn = document.getElementById('detalhe_do_tratamento_btn_fav');
+          const icone = document.getElementById('detalhe_do_tratamento_icone_fav');
+          if (detalhe_do_tratamento_favoritado) {
+            btn.classList.add('border-destaque', 'text-destaque');
+            btn.classList.remove('border-gray-200');
+            icone.setAttribute('fill', 'currentColor');
+            toast('Tratamento adicionado aos favoritos', 'ok');
+          } else {
+            btn.classList.remove('border-destaque', 'text-destaque');
+            btn.classList.add('border-gray-200');
+            icone.setAttribute('fill', 'none');
+            toast('Removido dos favoritos', 'info');
+          }
+        }
+
+        function detalhe_do_tratamento_compartilhar() {
+          if (navigator.share) {
+            navigator.share({ title: 'Fisioterapia Neurológica em Home Care', text: 'Conheça este tratamento especializado para reabilitação motora e cognitiva.', url: window.location.href }).catch(() => {});
+          } else {
+            navigator.clipboard.writeText(window.location.href).then(function() {
+              toast('Link copiado para a área de transferência', 'ok');
+            }).catch(function() {
+              toast('Não foi possível compartilhar', 'erro');
+            });
+          }
+        }
+
+        function detalhe_do_tratamento_ver_perfil() {
+          mostrarTela('gestao-de-pacientes');
+        }
+
+        function detalhe_do_tratamento_caso_modal(caso) {
+          const dados = {
+            marcia: { nome: 'Marcia S.', idade: '62 anos', protocolo: 'Reabilitação pós-AVC', sessoes: 12, resultado: 'Recuperação total da mobilidade do membro superior direito', iniciais: 'MS', cor: 'from-marca-200 to-destaque' },
+            roberto: { nome: 'Roberto A.', idade: '54 anos', protocolo: 'Dor lombar crônica', sessoes: 16, resultado: 'Redução de 80% na dor lombar', iniciais: 'RA', cor: 'from-destaque to-marca-800' },
+            ana: { nome: 'Ana P.', idade: '48 anos', protocolo: 'Reabilitação pós-operatória de joelho', sessoes: 18, resultado: 'Retorno à deambulação sem dor em 6 semanas', iniciais: 'AP', cor: 'from-marca-300 to-marca-600' }
+          };
+          const d = dados[caso];
+          return '<div class="space-y-4">' +
+            '<div class="flex items-center gap-3">' +
+              '<div class="w-14 h-14 rounded-full bg-gradient-to-br ' + d.cor + ' flex items-center justify-center"><span class="font-bold text-white text-lg">' + d.iniciais + '</span></div>' +
+              '<div><p class="font-display font-semibold text-marca-900">' + d.nome + '</p><p class="text-sm text-gray-500">' + d.idade + '</p></div>' +
+            '</div>' +
+            '<div class="space-y-2 text-sm"><div class="flex justify-between py-2 border-b border-gray-100"><span class="text-gray-500">Protocolo</span><span class="font-medium text-marca-900">' + d.protocolo + '</span></div>' +
+            '<div class="flex justify-between py-2 border-b border-gray-100"><span class="text-gray-500">Sessões realizadas</span><span class="font-medium text-marca-900">' + d.sessoes + '</span></div>' +
+            '<div class="flex justify-between py-2"><span class="text-gray-500">Resultado</span><span class="font-medium text-marca-900 text-right max-w-[60%]">' + d.resultado + '</span></div></div>' +
+            '<button onclick="mostrarTela(\'agendamento\'); fecharModal();" class="btn-destaque w-full text-center py-3 rounded-xl font-semibold text-sm">Agendar minha avaliação</button>' +
+          '</div>';
+        }
+
+        // Touch swipe para o carrossel
+        (function() {
+          const el = document.getElementById('detalhe_do_tratamento_carrossel');
+          let startX = 0;
+          if (el) {
+            el.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; }, { passive: true });
+            el.addEventListener('touchend', function(e) {
+              const diff = e.changedTouches[0].clientX - startX;
+              if (Math.abs(diff) > 50) { if (diff < 0) detalhe_do_tratamento_carrossel_prox(); else detalhe_do_tratamento_carrossel_ant(); }
+            });
+          }
+        })();
+      </script>
+    </section>
+
     <!-- TELAS -->
     </main>
 
