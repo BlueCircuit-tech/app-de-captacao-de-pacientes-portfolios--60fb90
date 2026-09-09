@@ -439,6 +439,131 @@
       </script>
     </section>
 
+    <section data-tela="vitrine-de-servicos" class="hidden">
+    <div class="vitrine-content px-4 pt-4 pb-24">
+        <div class="mb-4">
+            <h2 class="font-display text-xl font-bold text-gray-900">Nossos Serviços</h2>
+            <p class="text-sm text-gray-500 mt-1">Atendimento especializado em domicílio</p>
+        </div>
+
+        <div class="relative mb-3">
+            <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" stroke-width="2"/><path d="m21 21-4.35-4.35" stroke-width="2" stroke-linecap="round"/></svg>
+            <input id="vitrine-search" type="text" placeholder="Buscar serviço ou tratamento..."
+                class="w-full pl-10 pr-4 py-3 bg-white border border-gray-200 rounded-xl text-sm font-body text-gray-800 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-marca-500/30 focus:border-marca-500 transition-all">
+        </div>
+
+        <div class="flex gap-2 mb-3 overflow-x-auto pb-1 no-scrollbar">
+            <button onclick="vitrine_de_servicos_setCategoria('todos')" data-cat="todos"
+                class="cat-chip flex-shrink-0 px-4 py-2 rounded-full text-xs font-semibold font-body transition-all bg-marca-800 text-white">
+                Todos
+            </button>
+            <button onclick="vitrine_de_servicos_setCategoria('fisioterapia')" data-cat="fisioterapia"
+                class="cat-chip flex-shrink-0 px-4 py-2 rounded-full text-xs font-semibold font-body transition-all bg-gray-100 text-gray-600 hover:bg-gray-200 active:scale-95">
+                Fisioterapia
+            </button>
+            <button onclick="vitrine_de_servicos_setCategoria('estetica')" data-cat="estetica"
+                class="cat-chip flex-shrink-0 px-4 py-2 rounded-full text-xs font-semibold font-body transition-all bg-gray-100 text-gray-600 hover:bg-gray-200 active:scale-95">
+                Estética
+            </button>
+            <button onclick="vitrine_de_servicos_setCategoria('enfermagem')" data-cat="enfermagem"
+                class="cat-chip flex-shrink-0 px-4 py-2 rounded-full text-xs font-semibold font-body transition-all bg-gray-100 text-gray-600 hover:bg-gray-200 active:scale-95">
+                Enfermagem
+            </button>
+        </div>
+
+        <div class="flex items-center justify-between mb-3">
+            <span id="vitrine-count" class="text-xs text-gray-500 font-body">8 serviços encontrados</span>
+            <button onclick="vitrine_de_servicos_toggleSort()" class="flex items-center gap-1 text-xs font-semibold text-marca-800 font-body bg-marca-50 px-3 py-1.5 rounded-lg active:scale-95 transition-all">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 6h18M6 12h12M9 18h6" stroke-width="2" stroke-linecap="round"/></svg>
+                <span id="vitrine-sort-label">Ordenar</span>
+            </button>
+        </div>
+
+        <div id="vitrine-grid" class="grid grid-cols-2 gap-3"></div>
+
+        <div id="vitrine-skeleton-container" class="grid grid-cols-2 gap-3 hidden">
+            <div class="skeleton-card bg-gray-100 rounded-2xl overflow-hidden"><div class="skeleton-thumb w-full h-28 bg-gray-200 animate-pulse"></div><div class="p-3"><div class="skeleton-line w-3/4 h-3 bg-gray-200 rounded animate-pulse mb-2"></div><div class="skeleton-line w-1/2 h-3 bg-gray-200 rounded animate-pulse mb-2"></div><div class="skeleton-line w-2/3 h-4 bg-gray-200 rounded animate-pulse"></div></div></div>
+            <div class="skeleton-card bg-gray-100 rounded-2xl overflow-hidden"><div class="skeleton-thumb w-full h-28 bg-gray-200 animate-pulse"></div><div class="p-3"><div class="skeleton-line w-3/4 h-3 bg-gray-200 rounded animate-pulse mb-2"></div><div class="skeleton-line w-1/2 h-3 bg-gray-200 rounded animate-pulse mb-2"></div><div class="skeleton-line w-2/3 h-4 bg-gray-200 rounded animate-pulse"></div></div></div>
+        </div>
+
+        <div id="vitrine-empty" class="hidden text-center py-12">
+            <svg class="w-16 h-16 text-gray-300 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <p class="text-sm text-gray-500 font-body">Nenhum serviço encontrado</p>
+            <p class="text-xs text-gray-400 font-body mt-1">Tente alterar os filtros</p>
+        </div>
+
+        <div id="vitrine-sentinel" class="h-4"></div>
+    </div>
+
+    <div class="fixed bottom-0 left-0 right-0 z-40 pointer-events-none">
+        <div class="max-w-[430px] mx-auto px-4 pb-5 pointer-events-auto">
+            <div class="bg-marca-800 rounded-2xl p-4 flex items-center justify-between shadow-lg shadow-marca-900/20">
+                <div>
+                    <p class="text-white font-display font-bold text-sm">Primeira Avaliação Gratuita</p>
+                    <p class="text-marca-200 text-xs font-body mt-0.5">Conheça nosso atendimento sem custo</p>
+                </div>
+                <button onclick="mostrarTela('agendamento');toast('Vamos agendar sua primeira avaliação!','info')"
+                    class="bg-destaque text-white font-body font-bold text-xs px-5 py-2.5 rounded-xl active:scale-95 transition-all shadow-md hover:shadow-lg">
+                    Agendar agora
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="vitrine-filter-overlay" class="fixed inset-0 z-50 hidden">
+        <div class="absolute inset-0 bg-black/40 backdrop-blur-sm" onclick="vitrine_de_servicos_closeFilters()"></div>
+        <div class="absolute bottom-0 left-0 right-0 bg-white rounded-t-3xl p-5 transform translate-y-full transition-transform duration-300 ease-out" id="vitrine-filter-panel">
+            <div class="w-10 h-1 bg-gray-300 rounded-full mx-auto mb-4"></div>
+            <h3 class="font-display font-bold text-lg text-gray-900 mb-4">Filtros</h3>
+
+            <div class="mb-5">
+                <label class="text-sm font-semibold text-gray-700 font-body mb-2 block">Faixa de preço</label>
+                <div class="flex gap-3">
+                    <button onclick="vitrine_de_servicos_setPreco('todos')" data-preco="todos"
+                        class="preco-chip flex-1 py-2.5 rounded-xl text-xs font-semibold font-body border-2 border-marca-800 bg-marca-800 text-white transition-all active:scale-95">
+                        Todos
+                    </button>
+                    <button onclick="vitrine_de_servicos_setPreco('ate150')" data-preco="ate150"
+                        class="preco-chip flex-1 py-2.5 rounded-xl text-xs font-semibold font-body border-2 border-gray-200 text-gray-600 hover:border-gray-300 transition-all active:scale-95">
+                        Até R$150
+                    </button>
+                    <button onclick="vitrine_de_servicos_setPreco('acima150')" data-preco="acima150"
+                        class="preco-chip flex-1 py-2.5 rounded-xl text-xs font-semibold font-body border-2 border-gray-200 text-gray-600 hover:border-gray-300 transition-all active:scale-95">
+                        Acima de R$150
+                    </button>
+                </div>
+            </div>
+
+            <div class="mb-6">
+                <label class="text-sm font-semibold text-gray-700 font-body mb-2 block">Ordenação</label>
+                <div class="flex gap-2 flex-wrap">
+                    <button onclick="vitrine_de_servicos_setOrder('relevancia')" data-order="relevancia"
+                        class="order-chip px-4 py-2 rounded-xl text-xs font-semibold font-body border-2 border-marca-800 bg-marca-800 text-white transition-all active:scale-95">
+                        Relevância
+                    </button>
+                    <button onclick="vitrine_de_servicos_setOrder('menor-preco')" data-order="menor-preco"
+                        class="order-chip px-4 py-2 rounded-xl text-xs font-semibold font-body border-2 border-gray-200 text-gray-600 hover:border-gray-300 transition-all active:scale-95">
+                        Menor preço
+                    </button>
+                    <button onclick="vitrine_de_servicos_setOrder('maior-preco')" data-order="maior-preco"
+                        class="order-chip px-4 py-2 rounded-xl text-xs font-semibold font-body border-2 border-gray-200 text-gray-600 hover:border-gray-300 transition-all active:scale-95">
+                        Maior preço
+                    </button>
+                    <button onclick="vitrine_de_servicos_setOrder('avaliacao')" data-order="avaliacao"
+                        class="order-chip px-4 py-2 rounded-xl text-xs font-semibold font-body border-2 border-gray-200 text-gray-600 hover:border-gray-300 transition-all active:scale-95">
+                        Melhor avaliação
+                    </button>
+                </div>
+            </div>
+
+            <button onclick="vitrine_de_servicos_applyFilters()"
+                class="w-full bg-marca-800 text-white font-body font-bold text-sm py-3.5 rounded-xl active:scale-95 transition-all shadow-md">
+                Aplicar Filtros
+            </button>
+        </div>
+    </div>
+</section>
+
     <!-- TELAS -->
     </main>
 
