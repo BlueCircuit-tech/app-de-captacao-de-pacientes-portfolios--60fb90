@@ -2241,6 +2241,333 @@ function confirmacao_e_pagamento_compartilhar(){
       </script>
     </section>
 
+    <section data-tela="registrar-sessao" class="hidden">
+  <div class="animate-enter px-4 pb-8 pt-2 space-y-5">
+    <!-- Header -->
+    <div class="flex items-start justify-between">
+      <div class="flex items-center gap-3">
+        <button onclick="mostrarTela('acompanhar-sessoes')" class="w-9 h-9 rounded-xl bg-white border border-gray-200 flex items-center justify-center active:scale-95 transition-all">
+          <svg class="w-5 h-5 text-marca-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/></svg>
+        </button>
+        <div>
+          <h1 class="font-display text-xl font-bold text-marca-900">Registrar Sessão</h1>
+          <p class="text-xs text-gray-500 mt-0.5">Atendimento domiciliar — Maria Silva</p>
+        </div>
+      </div>
+      <button onclick="registrar_sessao_abrir_rascunho()" class="text-xs text-marca-700 font-semibold bg-marca-50 px-3 py-1.5 rounded-lg active:scale-95 transition-all">Rascunhos</button>
+    </div>
+
+    <!-- Patient Card -->
+    <div class="bg-white rounded-2xl border border-gray-200 p-4 flex items-center gap-3">
+      <div class="w-12 h-12 rounded-full bg-marca-100 flex items-center justify-center text-marca-700 font-display font-bold text-lg flex-shrink-0">MS</div>
+      <div class="flex-1 min-w-0">
+        <p class="font-semibold text-marca-900 text-sm">Maria da Silva</p>
+        <p class="text-xs text-gray-500">Fisioterapia ortopédica • Paciente desde 2023</p>
+      </div>
+      <button onclick="registrar_sessao_trocar_paciente()" class="text-xs text-destaque font-semibold px-3 py-1.5 bg-destaque/10 rounded-lg active:scale-95 transition-all flex-shrink-0">Trocar</button>
+    </div>
+
+    <!-- Tipo de Sessão -->
+    <div>
+      <label class="block text-xs font-semibold text-marca-800 mb-1.5 uppercase tracking-wide">Tipo de Sessão</label>
+      <div class="relative">
+        <select id="rs_tipo_sessao" class="w-full appearance-none bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm text-marca-900 font-medium focus:outline-none focus:ring-2 focus:ring-marca-300 focus:border-marca-400 transition-all cursor-pointer" onchange="registrar_sessao_atualizar_protocolos()">
+          <option value="">Selecione o tipo de atendimento</option>
+          <option value="avaliacao" selected>Avaliação inicial</option>
+          <option value="sessoes">Sessão de fisioterapia</option>
+          <option value="reavaliacao">Reavaliação</option>
+          <option value="alta">Alta terapêutica</option>
+        </select>
+        <svg class="w-5 h-5 text-gray-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
+      </div>
+    </div>
+
+    <!-- Data e Hora + Duração -->
+    <div class="grid grid-cols-2 gap-3">
+      <div>
+        <label class="block text-xs font-semibold text-marca-800 mb-1.5 uppercase tracking-wide">Data</label>
+        <input type="date" id="rs_data" class="w-full bg-white border border-gray-200 rounded-xl px-3 py-3 text-sm text-marca-900 font-medium focus:outline-none focus:ring-2 focus:ring-marca-300 transition-all" readonly>
+      </div>
+      <div>
+        <label class="block text-xs font-semibold text-marca-800 mb-1.5 uppercase tracking-wide">Hora</label>
+        <input type="time" id="rs_hora" class="w-full bg-white border border-gray-200 rounded-xl px-3 py-3 text-sm text-marca-900 font-medium focus:outline-none focus:ring-2 focus:ring-marca-300 transition-all" readonly>
+      </div>
+    </div>
+
+    <!-- Duração -->
+    <div>
+      <label class="block text-xs font-semibold text-marca-800 mb-1.5 uppercase tracking-wide">Duração (minutos)</label>
+      <div class="flex items-center gap-3">
+        <button onclick="registrar_sessao_duracao(-5)" class="w-12 h-12 rounded-xl bg-white border border-gray-200 flex items-center justify-center active:scale-95 transition-all">
+          <svg class="w-5 h-5 text-marca-700" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M20 12H4"/></svg>
+        </button>
+        <div class="flex-1 text-center">
+          <span id="rs_duracao_valor" class="text-3xl font-display font-bold text-marca-900">45</span>
+          <span class="text-sm text-gray-500 ml-1">min</span>
+        </div>
+        <button onclick="registrar_sessao_duracao(5)" class="w-12 h-12 rounded-xl bg-white border border-gray-200 flex items-center justify-center active:scale-95 transition-all">
+          <svg class="w-5 h-5 text-marca-700" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M12 4v16m8-8H4"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Escala de Dor -->
+    <div>
+      <label class="block text-xs font-semibold text-marca-800 mb-1.5 uppercase tracking-wide">Avaliação da Dor</label>
+      <div class="bg-white rounded-2xl border border-gray-200 p-4">
+        <div class="flex justify-between items-center mb-3">
+          <span class="text-xs text-gray-400">Sem dor</span>
+          <span class="text-sm font-bold text-marca-900">Dor atual: <span id="rs_dor_valor" class="text-destaque">3</span>/10</span>
+          <span class="text-xs text-gray-400">Dor máxima</span>
+        </div>
+        <div class="flex justify-between gap-1" id="rs_dor_escala"></div>
+        <div class="flex justify-center mt-3">
+          <div id="rs_dor_face" class="text-4xl transition-all">😐</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Anotações Clínicas -->
+    <div>
+      <label class="block text-xs font-semibold text-marca-800 mb-1.5 uppercase tracking-wide">Anotações Clínicas</label>
+      <textarea id="rs_anotacoes" rows="4" placeholder="Descreva o atendimento realizado, achados clínicos, observações relevantes..." class="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm text-marca-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-marca-300 resize-none transition-all">Paciente apresentou dor lombar à direita ao movimento de flexão. Amplitude de movimento preservada. Força muscular grau 4 nos membros inferiores. Tecido cicatricial na região lombar de cirurgia prévia (2022).</textarea>
+    </div>
+
+    <!-- Evolução Observada -->
+    <div>
+      <label class="block text-xs font-semibold text-marca-800 mb-1.5 uppercase tracking-wide">Evolução Observada</label>
+      <input type="text" id="rs_evolucao" placeholder="Ex: Dor diminuiu de 7 para 3 após exercícios" value="Paciente relata diminuição da dor em relação à sessão anterior (DOR 7 → DOR 3)" class="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm text-marca-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-marca-300 transition-all">
+    </div>
+
+    <!-- Procedimentos Realizados -->
+    <div>
+      <label class="block text-xs font-semibold text-marca-800 mb-2 uppercase tracking-wide">Procedimentos Realizados</label>
+      <div class="bg-white rounded-2xl border border-gray-200 divide-y divide-gray-100" id="rs_procedimentos_lista"></div>
+    </div>
+
+    <!-- Anexos -->
+    <div>
+      <label class="block text-xs font-semibold text-marca-800 mb-2 uppercase tracking-wide">Anexos</label>
+      <div class="bg-white rounded-2xl border border-gray-200 p-4 space-y-3">
+        <div class="flex gap-2">
+          <button onclick="registrar_sessao_camera()" class="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl border-2 border-dashed border-gray-300 hover:border-marca-400 hover:bg-marca-50 active:scale-95 transition-all">
+            <svg class="w-5 h-5 text-marca-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.54-.51 1.22-.29 1.83.33.92 1.23 1.56 2.14 1.56H16.5a2.25 2.25 0 012.25 2.25v4.5a2.25 2.25 0 01-2.25 2.25h-3.94m-6.72 0a2.25 2.25 0 01-2.25-2.25V9.003a2.25 2.25 0 012.25-2.25H6.75m6.72 0l-3 3.75m0 0L8.82 10.5"/></svg>
+            <span class="text-sm font-semibold text-marca-800">Tirar foto</span>
+          </button>
+          <button onclick="registrar_sessao_galeria()" class="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl border-2 border-dashed border-gray-300 hover:border-marca-400 hover:bg-marca-50 active:scale-95 transition-all">
+            <svg class="w-5 h-5 text-marca-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5z"/></svg>
+            <span class="text-sm font-semibold text-marca-800">Galeria</span>
+          </button>
+        </div>
+        <button onclick="registrar_sessao_anexar_documento()" class="w-full flex items-center justify-center gap-2 py-3 rounded-xl border-2 border-dashed border-gray-300 hover:border-marca-400 hover:bg-marca-50 active:scale-95 transition-all">
+          <svg class="w-5 h-5 text-marca-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m.75 12l3 3m0 0l3-3m-3 3v-6m-1.5-9H5.625a1.875 1.875 0 00-1.875 1.875v12.75a1.875 1.875 0 001.875 1.875h12.75"/></svg>
+          <span class="text-sm font-semibold text-marca-800">Anexar documento (PDF, imagem)</span>
+        </button>
+        <!-- Preview grid -->
+        <div id="rs_anexos_preview" class="grid grid-cols-4 gap-2"></div>
+      </div>
+    </div>
+
+    <!-- WhatsApp Notification -->
+    <label class="flex items-start gap-3 bg-white rounded-2xl border border-gray-200 p-4 cursor-pointer active:scale-[0.98] transition-all" onclick="this.classList.toggle('border-destaque');this.classList.toggle('bg-destaque/5');document.getElementById('rs_whatsapp').checked=!document.getElementById('rs_whatsapp').checked;registrar_sessao_whatsapp_toggle()">
+      <div class="mt-0.5">
+        <svg class="w-6 h-6 text-green-600" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.005a9.87 9.87 0 01-5.03-1.383L2.05 22l1.128-3.943A9.924 9.924 0 012.1 11.635c0-5.488 4.46-9.952 9.956-9.952 2.646 0 5.132 1.03 7.007 2.9a9.94 9.94 0 012.988 7.003c0 5.487-4.46 9.952-9.955 9.952"/></svg>
+      </div>
+      <div class="flex-1">
+        <p class="text-sm font-semibold text-marca-900">Notificar paciente no WhatsApp</p>
+        <p class="text-xs text-gray-500 mt-0.5">Enviar resumo da sessão com evolução e próximos passos</p>
+      </div>
+      <div class="relative flex-shrink-0">
+        <input type="checkbox" id="rs_whatsapp" class="sr-only peer" checked>
+        <div class="w-11 h-6 bg-gray-200 peer-checked:bg-green-500 rounded-full transition-colors"></div>
+        <div class="absolute left-0.5 top-0.5 w-5 h-5 bg-white rounded-full shadow peer-checked:translate-x-5 transition-transform"></div>
+      </div>
+    </label>
+
+    <!-- Espaço -->
+    <div class="h-2"></div>
+
+    <!-- Botão Salvar -->
+    <button onclick="registrar_sessao_salvar()" class="w-full bg-marca-700 hover:bg-marca-800 text-white font-bold text-base py-4 rounded-2xl active:scale-95 transition-all shadow-lg shadow-marca-700/20 flex items-center justify-center gap-2">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+      Salvar Sessão
+    </button>
+  </div>
+</section>
+
+<script>
+(function(){
+  'use strict';
+
+  var RS_DOR_ICONS = ['😄','🙂','😐','😕','😣','😫','😖','😭','🤬','🤯'];
+  var RS_PROCEDIMENTOS = [
+    {id:'eletro', label:'Eletroterapia (TENS/Ultrassom)'},
+    {id:'crioterapia', label:'Crioterapia'},
+    {id:'termoterapia', label:'Termoterapia (calor úmido/seco)'},
+    {id:'mobilizacao', label:'Mobilização articular passiva'},
+    {id:'fortalecimento', label:'Fortalecimento muscular'},
+    {id:'alongamento', label:'Alongamento muscular'},
+    {id:'dtm', label:'Diatermia por ondas curtas'},
+    {id:'laser', label:'Terapia a laser (LLLT)'},
+    {id:'ventosa', label:'Ventosaterapia'},
+    {id:'dpn', label:'Drenagem linfática / pneumática'},
+    {id:'ex_proprio', label:'Exercícios proprioceptivos'},
+    {id:'cinesio', label:'Cinesioterapia'},
+    {id:'manipulacao', label:'Manipulação vertebral'},
+    {id:'biofeedback', label:'Biofeedback'}
+  ];
+  var rs_duracao = 45;
+  var rs_dor = 3;
+  var rs_anexos = [];
+  var rs_proc_sel = new Set(['mobilizacao','fortalecimento','crioterapia']);
+
+  function init(){
+    rs_autofill_datetime();
+    rs_render_dor_escala();
+    rs_render_procedimentos();
+  }
+
+  function rs_autofill_datetime(){
+    var now = new Date();
+    var data = now.toISOString().split('T')[0];
+    var hora = now.toTimeString().substring(0,5);
+    var d = document.getElementById('rs_data');
+    var h = document.getElementById('rs_hora');
+    if(d) d.value = data;
+    if(h) h.value = hora;
+  }
+
+  function rs_render_dor_escala(){
+    var cont = document.getElementById('rs_dor_escala');
+    if(!cont) return;
+    cont.innerHTML = '';
+    for(var i=0;i<10;i++){
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'w-full aspect-square rounded-lg flex items-center justify-center text-sm font-bold transition-all active:scale-90 ' + (i <= rs_dor ? 'bg-destaque text-white' : 'bg-gray-100 text-gray-400');
+      btn.textContent = i+1;
+      btn.onclick = function(idx){
+        return function(){ rs_dor = idx; rs_render_dor_escala(); };
+      }(i);
+      cont.appendChild(btn);
+    }
+    var val = document.getElementById('rs_dor_valor');
+    var face = document.getElementById('rs_dor_face');
+    if(val) val.textContent = rs_dor;
+    if(face) face.textContent = RS_DOR_ICONS[rs_dor];
+  }
+
+  function rs_render_procedimentos(){
+    var cont = document.getElementById('rs_procedimentos_lista');
+    if(!cont) return;
+    cont.innerHTML = '';
+    RS_PROCEDIMENTOS.forEach(function(p){
+      var checked = rs_proc_sel.has(p.id);
+      var el = document.createElement('label');
+      el.className = 'flex items-center gap-3 px-4 py-3 cursor-pointer active:bg-gray-50 transition-all';
+      el.innerHTML = '<div class="w-5 h-5 rounded-md border-2 flex items-center justify-center flex-shrink-0 transition-all ' + (checked ? 'bg-marca-700 border-marca-700' : 'border-gray-300 bg-white') + '">' + (checked ? '<svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>' : '') + '</div><span class="text-sm text-marca-900 font-medium">' + p.label + '</span>';
+      el.onclick = function(id){
+        return function(e){
+          if(rs_proc_sel.has(id)) rs_proc_sel.delete(id); else rs_proc_sel.add(id);
+          rs_render_procedimentos();
+        };
+      }(p.id);
+      cont.appendChild(el);
+    });
+  }
+
+  function rs_duracao(delta){
+    rs_duracao = Math.max(5, Math.min(120, rs_duracao + delta));
+    var el = document.getElementById('rs_duracao_valor');
+    if(el) el.textContent = rs_duracao;
+  }
+
+  function rs_atualizar_protocolos(){
+    var tipo = document.getElementById('rs_tipo_sessao').value;
+    if(tipo === 'avaliacao'){
+      rs_proc_sel = new Set(['mobilizacao','eletro','biofeedback']);
+    } else if(tipo === 'sessoes'){
+      rs_proc_sel = new Set(['mobilizacao','fortalecimento','crioterapia','cinesio']);
+    } else if(tipo === 'reavaliacao'){
+      rs_proc_sel = new Set(['mobilizacao','fortalecimento','eletro']);
+    } else {
+      rs_proc_sel = new Set();
+    }
+    rs_render_procedimentos();
+  }
+
+  function rs_whatsapp_toggle(){
+    // handled by label onclick
+  }
+
+  function rs_camera(){
+    rs_adicionar_anexo('📷 Foto capturada', 'camera');
+  }
+
+  function rs_galeria(){
+    rs_adicionar_anexo('🖼️ Imagem da galeria', 'galeria');
+  }
+
+  function rs_anexar_documento(){
+    rs_adicionar_anexo('📄 Documento anexado.pdf', 'documento');
+  }
+
+  function rs_adicionar_anexo(label, tipo){
+    var colors = ['bg-marca-50 border-marca-200','bg-amber-50 border-amber-200','bg-blue-50 border-blue-200'];
+    var cont = document.getElementById('rs_anexos_preview');
+    if(!cont) return;
+    var el = document.createElement('div');
+    var c = colors[rs_anexos.length % colors.length];
+    el.className = 'relative aspect-square rounded-xl border-2 flex items-center justify-center text-2xl ' + c;
+    el.innerHTML = '<button onclick="registrar_sessao_remover_anexo(this)" class="absolute -top-1.5 -right-1.5 w-5 h-5 bg-red-500 text-white rounded-full flex items-center justify-center text-xs font-bold active:scale-90 transition-all shadow-sm">✕</button>';
+    var span = document.createElement('span');
+    span.textContent = tipo === 'camera' ? '📷' : tipo === 'galeria' ? '🖼️' : '📄';
+    el.appendChild(span);
+    el.title = label;
+    el.setAttribute('data-tipo', tipo);
+    cont.appendChild(el);
+    rs_anexos.push({label:label, tipo:tipo});
+    toast('Anexo adicionado', 'ok');
+  }
+
+  function rs_remover_anexo(btn){
+    var card = btn.parentElement;
+    if(card){ card.remove(); rs_anexos = rs_anexos.filter(function(a){ return true; }); }
+  }
+
+  function rs_salvar(){
+    var anot = document.getElementById('rs_anotacoes').value.trim();
+    var tipo = document.getElementById('rs_tipo_sessao').value;
+    if(!tipo){ toast('Selecione o tipo de sessão', 'erro'); return; }
+    if(!anot){ toast('Adicione as anotações clínicas', 'erro'); return; }
+    var wp = document.getElementById('rs_whatsapp').checked;
+    toast('Sessão registrada com sucesso!', 'ok');
+    setTimeout(function(){ mostrarTela('acompanhar-sessoes'); }, 800);
+  }
+
+  function rs_abrir_rascunho(){
+    abrirModal('<div class="space-y-3"><p class="text-sm text-gray-600">Nenhum rascunho salvo no momento.</p></div>', 'Rascunhos');
+  }
+
+  function rs_trocar_paciente(){
+    mostrarTela('gestao-de-pacientes');
+  }
+
+  window.registrar_sessao_duracao = rs_duracao;
+  window.registrar_sessao_abrir_rascunho = rs_abrir_rascunho;
+  window.registrar_sessao_trocar_paciente = rs_trocar_paciente;
+  window.registrar_sessao_atualizar_protocolos = rs_atualizar_protocolos;
+  window.registrar_sessao_whatsapp_toggle = rs_whatsapp_toggle;
+  window.registrar_sessao_camera = rs_camera;
+  window.registrar_sessao_galeria = rs_galeria;
+  window.registrar_sessao_anexar_documento = rs_anexar_documento;
+  window.registrar_sessao_remover_anexo = rs_remover_anexo;
+  window.registrar_sessao_salvar = rs_salvar;
+
+  init();
+})();
+</script>
+
     <!-- TELAS -->
     </main>
 
