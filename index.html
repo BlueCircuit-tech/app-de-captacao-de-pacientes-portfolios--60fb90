@@ -875,6 +875,273 @@
       </script>
     </section>
 
+    <section data-tela="agendamento" class="hidden">
+  <div class="px-5 pb-8 pt-2">
+    <div class="mb-6">
+      <h1 class="font-display text-2xl font-bold text-gray-900">Agendamento</h1>
+      <p class="text-sm text-gray-500 mt-1">Agende sua sessão de fisioterapia domiciliar</p>
+    </div>
+    <div class="flex items-center justify-between mb-8" id="stepper">
+      <div class="flex flex-col items-center flex-1">
+        <div id="step-ind-1" class="w-10 h-10 rounded-full bg-marca-700 text-white flex items-center justify-center text-sm font-bold transition-all duration-300">1</div>
+        <span class="text-xs mt-1.5 font-medium text-marca-700">Serviço</span>
+        <div class="w-full h-0.5 bg-marca-700 mt-3"></div>
+      </div>
+      <div class="flex flex-col items-center flex-1">
+        <div id="step-ind-2" class="w-10 h-10 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-sm font-bold transition-all duration-300">2</div>
+        <span class="text-xs mt-1.5 font-medium text-gray-400">Profissional</span>
+        <div class="w-full h-0.5 bg-gray-200 mt-3"></div>
+      </div>
+      <div class="flex flex-col items-center flex-1">
+        <div id="step-ind-3" class="w-10 h-10 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-sm font-bold transition-all duration-300">3</div>
+        <span class="text-xs mt-1.5 font-medium text-gray-400">Dados</span>
+      </div>
+    </div>
+    <div id="step-content">
+      <div id="step-1" class="step-panel">
+        <div class="card p-5 mb-4">
+          <div class="flex items-start gap-4">
+            <div class="w-20 h-20 rounded-xl flex-shrink-0 flex items-center justify-center" style="background:linear-gradient(135deg,#38571A 0%,#4a7a28 100%)">
+              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+            </div>
+            <div class="flex-1 min-w-0">
+              <h3 class="font-display font-bold text-gray-900 text-lg">Fisioterapia Ortopédica</h3>
+              <p class="text-sm text-gray-500 mt-0.5">Tratamento domiciliar individual</p>
+              <div class="flex items-center gap-3 mt-2">
+                <span class="badge badge-success text-xs">Disponível</span>
+                <span class="text-xs text-gray-400">Sessão de 50min</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card p-5 mb-4">
+          <h4 class="font-display font-bold text-sm text-gray-700 mb-3 uppercase tracking-wide">Protocolo incluído</h4>
+          <ul class="space-y-2.5">
+            <li class="flex items-start gap-2.5"><svg class="w-5 h-5 text-marca-700 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-sm text-gray-600">Avaliação postural completa</span></li>
+            <li class="flex items-start gap-2.5"><svg class="w-5 h-5 text-marca-700 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-sm text-gray-600">Mobilização articular e alongamento</span></li>
+            <li class="flex items-start gap-2.5"><svg class="w-5 h-5 text-marca-700 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-sm text-gray-600">Eletroterapia (se necessário)</span></li>
+            <li class="flex items-start gap-2.5"><svg class="w-5 h-5 text-marca-700 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-sm text-gray-600">Exercícios terapêuticos guiados</span></li>
+            <li class="flex items-start gap-2.5"><svg class="w-5 h-5 text-marca-700 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-sm text-gray-600">Relatório pós-sessão com evolução</span></li>
+          </ul>
+        </div>
+        <div class="card p-5 flex items-center justify-between">
+          <div>
+            <span class="text-sm text-gray-500">Valor por sessão</span>
+            <p class="font-display text-2xl font-bold text-marca-700 mt-0.5">R$ 180,00</p>
+          </div>
+          <div class="text-right">
+            <span class="text-xs text-gray-400">Plano de saúde</span>
+            <p class="text-sm font-medium text-green-700 mt-0.5">Aceito</p>
+          </div>
+        </div>
+      </div>
+      <div id="step-2" class="step-panel hidden">
+        <div class="space-y-4" id="profissionais-list">
+          <div class="card p-4 cursor-pointer transition-all duration-200 hover:shadow-lg border-2 border-transparent" data-prof-id="1" onclick="agendamento_selecionarProfissional(this,1)">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-12 h-12 rounded-full bg-marca-700 text-white flex items-center justify-center font-display font-bold text-lg flex-shrink-0">MC</div>
+              <div class="flex-1 min-w-0">
+                <h4 class="font-display font-bold text-gray-900 text-sm">Dra. Mariana Costa</h4>
+                <p class="text-xs text-gray-500">Fisioterapeuta - CREFITO 78945-3</p>
+              </div>
+              <div class="flex items-center gap-1">
+                <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <span class="text-sm font-bold text-gray-800">4.9</span>
+                <span class="text-xs text-gray-400">(127)</span>
+              </div>
+            </div>
+            <div class="space-y-2">
+              <p class="text-xs font-medium text-gray-500 uppercase tracking-wide">Manhã</p>
+              <div class="flex flex-wrap gap-2"><button class="time-chip px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-100 text-gray-600 hover:bg-marca-700 hover:text-white transition-all duration-200" onclick="agendamento_selecionarHorario(this,1,'08:00')">08:00</button><button class="time-chip px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-100 text-gray-600 hover:bg-marca-700 hover:text-white transition-all duration-200" onclick="agendamento_selecionarHorario(this,1,'09:00')">09:00</button><button class="time-chip px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-100 text-gray-600 hover:bg-marca-700 hover:text-white transition-all duration-200" onclick="agendamento_selecionarHorario(this,1,'10:00')">10:00</button></div>
+              <p class="text-xs font-medium text-gray-500 uppercase tracking-wide">Tarde</p>
+              <div class="flex flex-wrap gap-2"><button class="time-chip px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-100 text-gray-600 hover:bg-marca-700 hover:text-white transition-all duration-200" onclick="agendamento_selecionarHorario(this,1,'14:00')">14:00</button><button class="time-chip px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-100 text-gray-600 hover:bg-marca-700 hover:text-white transition-all duration-200" onclick="agendamento_selecionarHorario(this,1,'15:00')">15:00</button><button class="time-chip px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-100 text-gray-600 hover:bg-marca-700 hover:text-white transition-all duration-200" onclick="agendamento_selecionarHorario(this,1,'16:00')">16:00</button></div>
+            </div>
+          </div>
+          <div class="card p-4 cursor-pointer transition-all duration-200 hover:shadow-lg border-2 border-transparent" data-prof-id="2" onclick="agendamento_selecionarProfissional(this,2)">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-12 h-12 rounded-full bg-amber-600 text-white flex items-center justify-center font-display font-bold text-lg flex-shrink-0">RS</div>
+              <div class="flex-1 min-w-0">
+                <h4 class="font-display font-bold text-gray-900 text-sm">Dr. Rafael Santos</h4>
+                <p class="text-xs text-gray-500">Fisioterapeuta - CREFITO 65432-1</p>
+              </div>
+              <div class="flex items-center gap-1">
+                <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <span class="text-sm font-bold text-gray-800">4.7</span>
+                <span class="text-xs text-gray-400">(89)</span>
+              </div>
+            </div>
+            <div class="space-y-2">
+              <p class="text-xs font-medium text-gray-500 uppercase tracking-wide">Manhã</p>
+              <div class="flex flex-wrap gap-2"><button class="time-chip px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-100 text-gray-600 hover:bg-marca-700 hover:text-white transition-all duration-200" onclick="agendamento_selecionarHorario(this,2,'08:00')">08:00</button><button class="time-chip px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-100 text-gray-600 hover:bg-marca-700 hover:text-white transition-all duration-200" onclick="agendamento_selecionarHorario(this,2,'09:00')">09:00</button><button class="time-chip px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-100 text-gray-600 hover:bg-marca-700 hover:text-white transition-all duration-200" onclick="agendamento_selecionarHorario(this,2,'10:00')">10:00</button></div>
+              <p class="text-xs font-medium text-gray-500 uppercase tracking-wide">Tarde</p>
+              <div class="flex flex-wrap gap-2"><button class="time-chip px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-100 text-gray-600 hover:bg-marca-700 hover:text-white transition-all duration-200" onclick="agendamento_selecionarHorario(this,2,'14:00')">14:00</button><button class="time-chip px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-100 text-gray-600 hover:bg-marca-700 hover:text-white transition-all duration-200" onclick="agendamento_selecionarHorario(this,2,'15:00')">15:00</button><button class="time-chip px-3 py-1.5 rounded-lg text-xs font-medium bg-marca-700 text-white transition-all duration-200" disabled style="cursor:default">16:00 <span class="text-[10px] opacity-70">Indisp.</span></button></div>
+            </div>
+          </div>
+          <div class="card p-4 cursor-pointer transition-all duration-200 hover:shadow-lg border-2 border-transparent" data-prof-id="3" onclick="agendamento_selecionarProfissional(this,3)">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-12 h-12 rounded-full bg-emerald-600 text-white flex items-center justify-center font-display font-bold text-lg flex-shrink-0">AL</div>
+              <div class="flex-1 min-w-0">
+                <h4 class="font-display font-bold text-gray-900 text-sm">Dra. Ana Luiza Ferreira</h4>
+                <p class="text-xs text-gray-500">Fisioterapeuta - CREFITO 11223-4</p>
+              </div>
+              <div class="flex items-center gap-1">
+                <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <span class="text-sm font-bold text-gray-800">5.0</span>
+                <span class="text-xs text-gray-400">(56)</span>
+              </div>
+            </div>
+            <div class="space-y-2">
+              <p class="text-xs font-medium text-gray-500 uppercase tracking-wide">Manhã</p>
+              <div class="flex flex-wrap gap-2"><button class="time-chip px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-100 text-gray-600 hover:bg-marca-700 hover:text-white transition-all duration-200" onclick="agendamento_selecionarHorario(this,3,'08:00')">08:00</button><button class="time-chip px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-100 text-gray-600 hover:bg-marca-700 hover:text-white transition-all duration-200" onclick="agendamento_selecionarHorario(this,3,'09:00')">09:00</button><button class="time-chip px-3 py-1.5 rounded-lg text-xs font-medium bg-marca-700 text-white transition-all duration-200" disabled style="cursor:default">10:00 <span class="text-[10px] opacity-70">Indisp.</span></button></div>
+              <p class="text-xs font-medium text-gray-500 uppercase tracking-wide">Tarde</p>
+              <div class="flex flex-wrap gap-2"><button class="time-chip px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-100 text-gray-600 hover:bg-marca-700 hover:text-white transition-all duration-200" onclick="agendamento_selecionarHorario(this,3,'14:00')">14:00</button><button class="time-chip px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-100 text-gray-600 hover:bg-marca-700 hover:text-white transition-all duration-200" onclick="agendamento_selecionarHorario(this,3,'15:00')">15:00</button><button class="time-chip px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-100 text-gray-600 hover:bg-marca-700 hover:text-white transition-all duration-200" onclick="agendamento_selecionarHorario(this,3,'16:00')">16:00</button></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="step-3" class="step-panel hidden">
+        <div class="space-y-4">
+          <div class="card p-5">
+            <h4 class="font-display font-bold text-sm text-gray-700 mb-4 uppercase tracking-wide">Dados pessoais</h4>
+            <div class="space-y-3.5">
+              <div><label class="block text-xs font-medium text-gray-500 mb-1.5">Nome completo</label><input type="text" id="campo-nome" value="Carlos Eduardo Almeida" class="input-field w-full" placeholder="Seu nome completo" oninput="agendamento_dados.nome=this.value"></div>
+              <div><label class="block text-xs font-medium text-gray-500 mb-1.5">Telefone / WhatsApp</label><input type="tel" id="campo-telefone" value="(11) 98765-4321" class="input-field w-full" placeholder="(11) 00000-0000" oninput="agendamento_dados.telefone=this.value"></div>
+              <div><label class="block text-xs font-medium text-gray-500 mb-1.5">E-mail</label><input type="email" id="campo-email" value="carlos.almeida@email.com" class="input-field w-full" placeholder="seu@email.com" oninput="agendamento_dados.email=this.value"></div>
+            </div>
+          </div>
+          <div class="card p-5">
+            <h4 class="font-display font-bold text-sm text-gray-700 mb-4 uppercase tracking-wide">Endereço do atendimento</h4>
+            <div class="space-y-3.5">
+              <div class="grid grid-cols-2 gap-3">
+                <div class="col-span-2"><label class="block text-xs font-medium text-gray-500 mb-1.5">CEP</label><input type="text" id="campo-cep" value="01310-100" class="input-field w-full" placeholder="00000-000" oninput="agendamento_dados.cep=this.value"></div>
+                <div class="col-span-2"><label class="block text-xs font-medium text-gray-500 mb-1.5">Logradouro</label><input type="text" id="campo-logradouro" value="Av. Paulista" class="input-field w-full" placeholder="Rua, Avenida..." oninput="agendamento_dados.logradouro=this.value"></div>
+                <div><label class="block text-xs font-medium text-gray-500 mb-1.5">Número</label><input type="text" id="campo-numero" value="1000" class="input-field w-full" placeholder="Nº" oninput="agendamento_dados.numero=this.value"></div>
+                <div><label class="block text-xs font-medium text-gray-500 mb-1.5">Complemento</label><input type="text" id="campo-complemento" value="Apto 42, Bloco B" class="input-field w-full" placeholder="Apto, Bloco..." oninput="agendamento_dados.complemento=this.value"></div>
+                <div><label class="block text-xs font-medium text-gray-500 mb-1.5">Bairro</label><input type="text" id="campo-bairro" value="Bela Vista" class="input-field w-full" placeholder="Bairro" oninput="agendamento_dados.bairro=this.value"></div>
+                <div><label class="block text-xs font-medium text-gray-500 mb-1.5">Cidade/UF</label><input type="text" id="campo-cidade" value="São Paulo - SP" class="input-field w-full" placeholder="Cidade - UF" oninput="agendamento_dados.cidade=this.value"></div>
+              </div>
+            </div>
+            <div class="mt-4 rounded-xl overflow-hidden border border-gray-200 h-40 bg-gray-100 relative">
+              <svg class="w-full h-full" viewBox="0 0 400 160" xmlns="http://www.w3.org/2000/svg">
+                <rect width="400" height="160" fill="#e5e7eb"/>
+                <rect x="20" y="20" width="360" height="120" rx="8" fill="#f3f4f6" stroke="#d1d5db" stroke-width="1"/>
+                <line x1="30" y1="50" x2="370" y2="50" stroke="#d1d5db" stroke-width="0.5"/>
+                <line x1="30" y1="70" x2="370" y2="70" stroke="#d1d5db" stroke-width="0.5"/>
+                <line x1="30" y1="90" x2="370" y2="90" stroke="#d1d5db" stroke-width="0.5"/>
+                <line x1="30" y1="110" x2="370" y2="110" stroke="#d1d5db" stroke-width="0.5"/>
+                <rect x="50" y="60" width="30" height="40" rx="2" fill="#d1d5db"/>
+                <rect x="100" y="40" width="40" height="60" rx="2" fill="#d1d5db"/>
+                <rect x="160" y="50" width="25" height="50" rx="2" fill="#d1d5db"/>
+                <rect x="210" y="35" width="50" height="65" rx="2" fill="#d1d5db"/>
+                <rect x="280" y="55" width="35" height="45" rx="2" fill="#d1d5db"/>
+                <rect x="330" y="45" width="30" height="55" rx="2" fill="#d1d5db"/>
+                <circle cx="200" cy="80" r="12" fill="#38571A"/>
+                <circle cx="200" cy="80" r="6" fill="#D38301"/>
+                <text x="200" y="84" text-anchor="middle" fill="white" font-size="8" font-weight="bold">★</text>
+                <text x="200" y="148" text-anchor="middle" fill="#6b7280" font-size="9" font-family="sans-serif">Av. Paulista, 1000 — Bela Vista, SP</text>
+              </svg>
+            </div>
+          </div>
+          <div class="card p-5">
+            <h4 class="font-display font-bold text-sm text-gray-700 mb-3 uppercase tracking-wide">Observações <span class="text-gray-400 normal-case">(opcional)</span></h4>
+            <textarea id="campo-obs" class="input-field w-full resize-none" rows="3" placeholder="Informe alguma observação relevante para o atendimento..." oninput="agendamento_dados.observacoes=this.value"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-md border-t border-gray-200 px-5 py-4 z-50" id="agendamento-footer">
+    <div id="footer-step1" class="flex gap-3">
+      <button class="flex-1 btn btn-outline py-3 text-sm" onclick="mostrarTela('vitrine-de-servicos')">Voltar</button>
+      <button class="flex-1 btn py-3 text-sm active:scale-95" onclick="agendamento_proximo()">Próximo</button>
+    </div>
+    <div id="footer-step2" class="flex gap-3 hidden">
+      <button class="flex-1 btn btn-outline py-3 text-sm" onclick="agendamento_voltar(1)">Voltar</button>
+      <button class="flex-1 btn py-3 text-sm active:scale-95" id="btn-step2-next" disabled onclick="agendamento_proximo()">Próximo</button>
+    </div>
+    <div id="footer-step3" class="hidden">
+      <div class="flex items-center justify-between mb-3 px-1">
+        <span class="text-sm text-gray-500">Total do agendamento</span>
+        <span class="font-display font-bold text-xl text-marca-700" id="agendamento-total">R$ 180,00</span>
+      </div>
+      <div class="flex gap-3">
+        <button class="flex-1 btn btn-outline py-3 text-sm" onclick="agendamento_voltar(2)">Voltar</button>
+        <button class="flex-1 py-3 text-sm rounded-xl font-semibold text-white transition-all duration-200 active:scale-95" style="background:#D38301" onclick="agendamento_confirmar()" id="btn-confirmar">Confirmar agendamento</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    const agendamento_dados={nome:'Carlos Eduardo Almeida',telefone:'(11) 98765-4321',email:'carlos.almeida@email.com',cep:'01310-100',logradouro:'Av. Paulista',numero:'1000',complemento:'Apto 42, Bloco B',bairro:'Bela Vista',cidade:'São Paulo - SP',observacoes:''};
+    let agendamento_step=1,agendamento_selectedProf=null,agendamento_selectedTime=null,agendamento_selectedProfName='',agendamento_selectedTimeStr='';
+    function agendamento_showStep(n){
+      agendamento_step=n;
+      document.querySelectorAll('.step-panel').forEach(p=>p.classList.add('hidden'));
+      const panel=document.getElementById('step-'+n);if(panel)panel.classList.remove('hidden');
+      for(let i=1;i<=3;i++){
+        const ind=document.getElementById('step-ind-'+i),label=ind?.parentElement?.querySelector('span');
+        if(i<=n){ind.className='w-10 h-10 rounded-full bg-marca-700 text-white flex items-center justify-center text-sm font-bold transition-all duration-300';if(label){label.className='text-xs mt-1.5 font-medium text-marca-700';}}else{ind.className='w-10 h-10 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-sm font-bold transition-all duration-300';if(label){label.className='text-xs mt-1.5 font-medium text-gray-400';}}
+        const connector=ind?.parentElement?.querySelector('.w-full');
+        if(connector){if(i<n){connector.className='w-full h-0.5 bg-marca-700 mt-3';}else{connector.className='w-full h-0.5 bg-gray-200 mt-3';}}
+      }
+      document.getElementById('footer-step1').classList.toggle('hidden',n!==1);
+      document.getElementById('footer-step2').classList.toggle('hidden',n!==2);
+      document.getElementById('footer-step3').classList.toggle('hidden',n!==3);
+      document.getElementById('agendamento-footer').classList.toggle('hidden',false);
+    }
+    function agendamento_proximo(){
+      if(agendamento_step===1){agendamento_showStep(2);}
+      else if(agendamento_step===2){
+        if(!agendamento_selectedProf||!agendamento_selectedTime){toast('Selecione um profissional e horário','erro');return;}
+        agendamento_showStep(3);
+      }
+    }
+    function agendamento_voltar(n){agendamento_showStep(n);}
+    function agendamento_selecionarProfissional(el,id){
+      document.querySelectorAll('#profissionais-list > div').forEach(c=>{c.classList.remove('border-marca-700','bg-marca-50/50');c.classList.add('border-transparent');});
+      el.classList.remove('border-transparent');el.classList.add('border-marca-700','bg-marca-50/50');
+      agendamento_selectedProf=id;
+      agendamento_selectedProfName=el.querySelector('h4')?.textContent||'';
+      agendamento_verificarProximo();
+    }
+    function agendamento_selecionarHorario(btn,profId,time){
+      const card=document.querySelector(`[data-prof-id="${profId}"]`);
+      if(!card)return;
+      card.querySelectorAll('.time-chip').forEach(c=>{if(!c.disabled){c.classList.remove('bg-marca-700','text-white');c.classList.add('bg-gray-100','text-gray-600');}});
+      btn.classList.remove('bg-gray-100','text-gray-600');btn.classList.add('bg-marca-700','text-white');
+      if(agendamento_selectedProf===profId){agendamento_selectedTime=null;agendamento_selectedTimeStr='';}
+      agendamento_selectedProf=profId;
+      agendamento_selectedTime=time;agendamento_selectedTimeStr=time;
+      agendamento_selectedProfName=card.querySelector('h4')?.textContent||'';
+      agendamento_verificarProximo();
+    }
+    function agendamento_verificarProximo(){
+      const btn=document.getElementById('btn-step2-next');
+      if(agendamento_selectedProf&&agendamento_selectedTime){btn.disabled=false;btn.classList.remove('opacity-50','cursor-not-allowed');}
+      else{btn.disabled=true;btn.classList.add('opacity-50','cursor-not-allowed');}
+    }
+    function agendamento_confirmar(){
+      if(!agendamento_selectedProf||!agendamento_selectedTime){toast('Selecione profissional e horário','erro');return;}
+      const nome=document.getElementById('campo-nome')?.value?.trim();
+      const tel=document.getElementById('campo-telefone')?.value?.trim();
+      if(!nome){toast('Informe seu nome','erro');return;}
+      if(!tel){toast('Informe seu telefone','erro');return;}
+      const profNomes={1:'Dra. Mariana Costa',2:'Dr. Rafael Santos',3:'Dra. Ana Luiza Ferreira'};
+      const profEscolhido=profNomes[agendamento_selectedProf]||agendamento_selectedProfName;
+      const hoje=new Date();const dataAgendamento=new Date(hoje);dataAgendamento.setDate(hoje.getDate()+1);
+      const dataStr=dataAgendamento.toLocaleDateString('pt-BR',{weekday:'long',day:'2-digit',month:'long',year:'numeric'});
+      const modalHtml=`<div class="p-5 text-center"><div class="w-16 h-16 rounded-full bg-green-100 text-green-600 flex items-center justify-center mx-auto mb-4"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg></div><h3 class="font-display text-xl font-bold text-gray-900 mb-1">Agendamento Confirmado!</h3><p class="text-sm text-gray-500 mb-5">Sua sessão foi agendada com sucesso.</p><div class="bg-gray-50 rounded-xl p-4 text-left space-y-2.5 mb-5"><div class="flex justify-between text-sm"><span class="text-gray-500">Serviço</span><span class="font-medium text-gray-900">Fisioterapia Ortopédica</span></div><div class="flex justify-between text-sm"><span class="text-gray-500">Profissional</span><span class="font-medium text-gray-900">${profEscolhido}</span></div><div class="flex justify-between text-sm"><span class="text-gray-500">Data</span><span class="font-medium text-gray-900">${dataStr}</span></div><div class="flex justify-between text-sm"><span class="text-gray-500">Horário</span><span class="font-medium text-gray-900">${agendamento_selectedTimeStr}</span></div><div class="flex justify-between text-sm"><span class="text-gray-500">Endereço</span><span class="font-medium text-gray-900 text-right ml-4">${agendamento_dados.logradouro}, ${agendamento_dados.numero}</span></div><div class="flex justify-between text-sm pt-2 border-t border-gray-200"><span class="text-gray-500">Total</span><span class="font-bold text-marca-700 text-lg">R$ 180,00</span></div></div><p class="text-xs text-gray-400">Você receberá uma confirmação por WhatsApp.</p></div>`;
+      abrirModal(modalHtml,'Agendamento Confirmado');
+      setTimeout(()=>{fecharModal();toast('Agendamento realizado com sucesso!','ok');agendamento_reset();mostrarTela('acompanhar-sessoes');},3000);
+    }
+    function agendamento_reset(){
+      agendamento_step=1;agendamento_selectedProf=null;agendamento_selectedTime=null;agendamento_selectedTimeStr='';agendamento_selectedProfName='';
+      document.querySelectorAll('#profissionais-list .time-chip').forEach(c=>{if(!c.disabled){c.classList.remove('bg-marca-700','text-white');c.classList.add('bg-gray-100','text-gray-600');}});
+      document.querySelectorAll('#profissionais-list > div').forEach(c=>{c.classList.remove('border-marca-700','bg-marca-50/50');c.classList.add('border-transparent');});
+    }
+    agendamento_showStep(1);agendamento_verificarProximo();
+  </script>
+</section>
+
     <!-- TELAS -->
     </main>
 
