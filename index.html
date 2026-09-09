@@ -112,7 +112,334 @@
     </div>
 
     <main style="flex:1; overflow-y:auto; overflow-x:hidden; -webkit-overflow-scrolling:touch; position:relative;" id="conteudo-app">
-      <!-- TELAS -->
+      <section data-tela="home-vitrine" class="hidden">
+      <div class="px-5 pt-3 pb-24">
+        <!-- Saudação -->
+        <div class="mb-4">
+          <p class="text-sm text-marca-600 font-body font-medium">Olá, Maria</p>
+          <h1 class="text-xl font-display font-bold text-marca-900 leading-tight">Encontre seu tratamento</h1>
+        </div>
+
+        <!-- Busca -->
+        <div class="relative mb-5">
+          <svg class="absolute left-3.5 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" stroke-width="2"/><path d="M21 21l-4.35-4.35" stroke-width="2" stroke-linecap="round"/></svg>
+          <input id="home-busca" type="text" placeholder="Buscar tratamento, protocolo..." class="w-full pl-11 pr-10 py-3 bg-white border border-gray-200 rounded-2xl text-sm font-body text-marca-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-marca-500 focus:border-transparent transition-all" oninput="home_vitrine_buscar(this.value)"/>
+          <button onclick="home_vitrine_limparBusca()" id="home-limpar-busca" class="hidden absolute right-3 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center hover:bg-gray-300 transition-colors">
+            <svg class="w-3.5 h-3.5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12" stroke-width="2.5" stroke-linecap="round"/></svg>
+          </button>
+        </div>
+
+        <!-- Carrossel de Serviços -->
+        <div class="mb-5">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-base font-display font-bold text-marca-900">Serviços</h2>
+            <button onclick="mostrarTela('vitrine-de-servicos')" class="text-xs font-body font-semibold text-destaque hover:text-orange-700 transition-colors">Ver todos</button>
+          </div>
+          <div class="relative">
+            <button onclick="home_vitrine_carrossel(-1)" class="hidden md:flex absolute -left-2 top-1/3 z-10 w-8 h-8 bg-white rounded-full shadow-md items-center justify-center hover:bg-gray-50 transition-colors">
+              <svg class="w-4 h-4 text-marca-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div id="home-carrossel" class="flex gap-3 overflow-x-auto pb-2 snap-x snap-mandatory scrollbar-hide" style="-webkit-overflow-scrolling:touch;scrollbar-width:none;" onscroll="home_vitrine_carrosselScroll(this)">
+              <div class="snap-start shrink-0 w-[130px] bg-white rounded-2xl border border-gray-100 shadow-sm p-3.5 cursor-pointer active:scale-95 transition-all hover:shadow-md" onclick="mostrarTela('detalhe-do-tratamento')">
+                <div class="w-11 h-11 rounded-xl bg-marca-50 flex items-center justify-center mb-3">
+                  <svg class="w-6 h-6 text-marca-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 2-2.97 2-4.5A5.5 5.5 0 0 0 15.5 4 5.5 5.5 0 0 0 10 9.5c0 1.53.5 3.04 2 4.5" stroke-width="1.5" stroke-linecap="round"/><path d="M12 13v7m-3-3h6" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </div>
+                <p class="text-xs font-display font-bold text-marca-900 leading-snug mb-1.5">Fisioterapia Domiciliar</p>
+                <span class="inline-block text-[10px] font-body font-semibold bg-green-100 text-green-700 px-2 py-0.5 rounded-full">Disponível hoje</span>
+              </div>
+              <div class="snap-start shrink-0 w-[130px] bg-white rounded-2xl border border-gray-100 shadow-sm p-3.5 cursor-pointer active:scale-95 transition-all hover:shadow-md" onclick="mostrarTela('detalhe-do-tratamento')">
+                <div class="w-11 h-11 rounded-xl bg-marca-50 flex items-center justify-center mb-3">
+                  <svg class="w-6 h-6 text-marca-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 2a8 8 0 0 1 8 8c0 3.36-2.07 6.23-5 7.46V20a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-2.54C6.07 16.23 4 13.36 4 10a8 8 0 0 1 8-8z" stroke-width="1.5" stroke-linejoin="round"/><circle cx="9" cy="11" r="1.2" fill="currentColor"/><circle cx="15" cy="11" r="1.2" fill="currentColor"/></svg>
+                </div>
+                <p class="text-xs font-display font-bold text-marca-900 leading-snug mb-1.5">Reabilitação Neurológica</p>
+                <span class="inline-block text-[10px] font-body font-semibold bg-green-100 text-green-700 px-2 py-0.5 rounded-full">Disponível hoje</span>
+              </div>
+              <div class="snap-start shrink-0 w-[130px] bg-white rounded-2xl border border-gray-100 shadow-sm p-3.5 cursor-pointer active:scale-95 transition-all hover:shadow-md" onclick="mostrarTela('detalhe-do-tratamento')">
+                <div class="w-11 h-11 rounded-xl bg-marca-50 flex items-center justify-center mb-3">
+                  <svg class="w-6 h-6 text-marca-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                </div>
+                <p class="text-xs font-display font-bold text-marca-900 leading-snug mb-1.5">Acupuntura</p>
+                <span class="inline-block text-[10px] font-body font-semibold bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full">3 vagas</span>
+              </div>
+              <div class="snap-start shrink-0 w-[130px] bg-white rounded-2xl border border-gray-100 shadow-sm p-3.5 cursor-pointer active:scale-95 transition-all hover:shadow-md" onclick="mostrarTela('detalhe-do-tratamento')">
+                <div class="w-11 h-11 rounded-xl bg-marca-50 flex items-center justify-center mb-3">
+                  <svg class="w-6 h-6 text-marca-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                </div>
+                <p class="text-xs font-display font-bold text-marca-900 leading-snug mb-1.5">Massoterapia</p>
+                <span class="inline-block text-[10px] font-body font-semibold bg-green-100 text-green-700 px-2 py-0.5 rounded-full">Disponível hoje</span>
+              </div>
+            </div>
+            <button onclick="home_vitrine_carrossel(1)" class="absolute -right-2 top-1/3 z-10 w-8 h-8 bg-white rounded-full shadow-md items-center justify-center hover:bg-gray-50 transition-colors md:flex hidden">
+              <svg class="w-4 h-4 text-marca-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Tratamentos em Destaque -->
+        <div class="mb-5">
+          <h2 class="text-base font-display font-bold text-marca-900 mb-3">Tratamentos em destaque</h2>
+          <div class="space-y-3">
+            <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden cursor-pointer active:scale-[0.98] transition-all hover:shadow-md" onclick="mostrarTela('detalhe-do-tratamento')">
+              <div class="h-40 relative overflow-hidden">
+                <div class="absolute inset-0" style="background:linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 40%, #a5d6a7 100%)"></div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <div class="flex gap-4 items-end">
+                    <div class="w-20 h-28 rounded-lg bg-gray-300/30 border-2 border-dashed border-gray-400/40 flex items-center justify-center backdrop-blur-sm">
+                      <svg class="w-8 h-8 text-gray-500/60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14" stroke-width="1.5"/><rect x="3" y="3" width="18" height="18" rx="2" stroke-width="1.5"/></svg>
+                    </div>
+                    <svg class="w-5 h-5 text-gray-500/60 mb-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 7l5 5m0 0l-5 5m5-5H6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <div class="w-20 h-28 rounded-lg bg-gray-200/50 border-2 border-dashed border-gray-400/40 flex items-center justify-center backdrop-blur-sm">
+                      <svg class="w-8 h-8 text-gray-500/60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                  </div>
+                </div>
+                <div class="absolute top-3 left-3"><span class="badge bg-marca-500 text-white text-[10px] font-body font-bold uppercase tracking-wider px-2.5 py-1 rounded-lg">Antes / Depois</span></div>
+              </div>
+              <div class="p-4">
+                <h3 class="text-sm font-display font-bold text-marca-900 mb-1">Protocolo de Reeducação Postural</h3>
+                <div class="flex items-center gap-1 mb-2">
+                  <svg class="w-3.5 h-3.5 text-destaque" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                  <span class="text-xs font-body font-semibold text-marca-800">4.9</span>
+                  <span class="text-[10px] text-gray-400 font-body">(127 avaliações)</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <p class="text-sm font-display font-bold text-destaque">A partir de <span class="text-base">R$ 180</span></p>
+                  <span class="text-[10px] font-body text-gray-500">por sessão</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden cursor-pointer active:scale-[0.98] transition-all hover:shadow-md" onclick="mostrarTela('detalhe-do-tratamento')">
+              <div class="h-40 relative overflow-hidden">
+                <div class="absolute inset-0" style="background:linear-gradient(135deg, #fff8e1 0%, #ffecb3 40%, #ffe082 100%)"></div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <div class="flex gap-4 items-end">
+                    <div class="w-20 h-28 rounded-lg bg-gray-300/30 border-2 border-dashed border-gray-400/40 flex items-center justify-center backdrop-blur-sm">
+                      <svg class="w-8 h-8 text-gray-500/60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14" stroke-width="1.5"/><rect x="3" y="3" width="18" height="18" rx="2" stroke-width="1.5"/></svg>
+                    </div>
+                    <svg class="w-5 h-5 text-gray-500/60 mb-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 7l5 5m0 0l-5 5m5-5H6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <div class="w-20 h-28 rounded-lg bg-gray-200/50 border-2 border-dashed border-gray-400/40 flex items-center justify-center backdrop-blur-sm">
+                      <svg class="w-8 h-8 text-gray-500/60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                  </div>
+                </div>
+                <div class="absolute top-3 left-3"><span class="badge bg-destaque text-white text-[10px] font-body font-bold uppercase tracking-wider px-2.5 py-1 rounded-lg">Destaque</span></div>
+              </div>
+              <div class="p-4">
+                <h3 class="text-sm font-display font-bold text-marca-900 mb-1">Fortalecimento Muscular Progressivo</h3>
+                <div class="flex items-center gap-1 mb-2">
+                  <svg class="w-3.5 h-3.5 text-destaque" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                  <span class="text-xs font-body font-semibold text-marca-800">4.8</span>
+                  <span class="text-[10px] text-gray-400 font-body">(89 avaliações)</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <p class="text-sm font-display font-bold text-destaque">A partir de <span class="text-base">R$ 150</span></p>
+                  <span class="text-[10px] font-body text-gray-500">por sessão</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden cursor-pointer active:scale-[0.98] transition-all hover:shadow-md" onclick="mostrarTela('detalhe-do-tratamento')">
+              <div class="h-40 relative overflow-hidden">
+                <div class="absolute inset-0" style="background:linear-gradient(135deg, #e3f2fd 0%, #bbdefb 40%, #90caf9 100%)"></div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <div class="flex gap-4 items-end">
+                    <div class="w-20 h-28 rounded-lg bg-gray-300/30 border-2 border-dashed border-gray-400/40 flex items-center justify-center backdrop-blur-sm">
+                      <svg class="w-8 h-8 text-gray-500/60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14" stroke-width="1.5"/><rect x="3" y="3" width="18" height="18" rx="2" stroke-width="1.5"/></svg>
+                    </div>
+                    <svg class="w-5 h-5 text-gray-500/60 mb-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 7l5 5m0 0l-5 5m5-5H6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <div class="w-20 h-28 rounded-lg bg-gray-200/50 border-2 border-dashed border-gray-400/40 flex items-center justify-center backdrop-blur-sm">
+                      <svg class="w-8 h-8 text-gray-500/60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                  </div>
+                </div>
+                <div class="absolute top-3 left-3"><span class="badge bg-marca-500 text-white text-[10px] font-body font-bold uppercase tracking-wider px-2.5 py-1 rounded-lg">Antes / Depois</span></div>
+              </div>
+              <div class="p-4">
+                <h3 class="text-sm font-display font-bold text-marca-900 mb-1">Liberação Miofascial</h3>
+                <div class="flex items-center gap-1 mb-2">
+                  <svg class="w-3.5 h-3.5 text-destaque" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                  <span class="text-xs font-body font-semibold text-marca-800">5.0</span>
+                  <span class="text-[10px] text-gray-400 font-body">(54 avaliações)</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <p class="text-sm font-display font-bold text-destaque">A partir de <span class="text-base">R$ 200</span></p>
+                  <span class="text-[10px] font-body text-gray-500">por sessão</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Depoimentos -->
+        <div class="mb-5">
+          <h2 class="text-base font-display font-bold text-marca-900 mb-3">O que dizem nossos pacientes</h2>
+          <div class="space-y-3">
+            <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-4 cursor-pointer active:scale-[0.98] transition-all" onclick="home_vitrine_abrirDepoimento('ana')">
+              <div class="flex gap-3">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center shrink-0" style="background:#38571A">
+                  <span class="text-white text-xs font-display font-bold">AC</span>
+                </div>
+                <div class="flex-1">
+                  <div class="flex items-center justify-between mb-1">
+                    <p class="text-sm font-display font-bold text-marca-900">Ana Carolina Mendes</p>
+                    <div class="flex gap-0.5">
+                      <svg class="w-3.5 h-3.5 text-destaque" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                      <svg class="w-3.5 h-3.5 text-destaque" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                      <svg class="w-3.5 h-3.5 text-destaque" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                      <svg class="w-3.5 h-3.5 text-destaque" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                      <svg class="w-3.5 h-3.5 text-destaque" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+                  </div>
+                  <p class="text-xs font-body text-gray-600 leading-relaxed">"Recuperei a mobilidade do joelho em 2 meses. A fisioterapeuta veio em casa todos os dias. Excelente profissionalismo!"</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-4 cursor-pointer active:scale-[0.98] transition-all" onclick="home_vitrine_abrirDepoimento('carlos')">
+              <div class="flex gap-3">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center shrink-0" style="background:#D38301">
+                  <span class="text-white text-xs font-display font-bold">RS</span>
+                </div>
+                <div class="flex-1">
+                  <div class="flex items-center justify-between mb-1">
+                    <p class="text-sm font-display font-bold text-marca-900">Roberto Silva</p>
+                    <div class="flex gap-0.5">
+                      <svg class="w-3.5 h-3.5 text-destaque" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                      <svg class="w-3.5 h-3.5 text-destaque" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                      <svg class="w-3.5 h-3.5 text-destaque" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                      <svg class="w-3.5 h-3.5 text-destaque" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                      <svg class="w-3.5 h-3.5 text-gray-300" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+                  </div>
+                  <p class="text-xs font-body text-gray-600 leading-relaxed">"O atendimento pós-AVC mudou nossa vida. A equipe é extremamente qualificada e atenciosa. Meu pai voltou a andar com ajuda."</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-4 cursor-pointer active:scale-[0.98] transition-all" onclick="home_vitrine_abrirDepoimento('patricia')">
+              <div class="flex gap-3">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center shrink-0" style="background:#5a7a3a">
+                  <span class="text-white text-xs font-display font-bold">PL</span>
+                </div>
+                <div class="flex-1">
+                  <div class="flex items-center justify-between mb-1">
+                    <p class="text-sm font-display font-bold text-marca-900">Patrícia Lima</p>
+                    <div class="flex gap-0.5">
+                      <svg class="w-3.5 h-3.5 text-destaque" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                      <svg class="w-3.5 h-3.5 text-destaque" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                      <svg class="w-3.5 h-3.5 text-destaque" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                      <svg class="w-3.5 h-3.5 text-destaque" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                      <svg class="w-3.5 h-3.5 text-destaque" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+                  </div>
+                  <p class="text-xs font-body text-gray-600 leading-relaxed">"A acupuntura aliviou minhas dores crônicas nas costas. Agendamento fácil pelo app e atendimento impecável. Recomendo!"</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Acesso Rápido -->
+        <div class="mb-6">
+          <h2 class="text-base font-display font-bold text-marca-900 mb-3">Acesso rápido</h2>
+          <div class="grid grid-cols-2 gap-3">
+            <button onclick="mostrarTela('agendamento')" class="bg-white rounded-2xl border border-gray-100 shadow-sm p-4 flex items-center gap-3 cursor-pointer active:scale-95 transition-all hover:shadow-md text-left">
+              <div class="w-10 h-10 rounded-xl bg-destaque/10 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-destaque" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" stroke-width="1.5"/><path d="M16 2v4M8 2v4M3 10h18" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <div>
+                <p class="text-xs font-display font-bold text-marca-900">Agendar</p>
+                <p class="text-[10px] font-body text-gray-500">Consulta avaliativa</p>
+              </div>
+            </button>
+            <button onclick="mostrarTela('acompanhar-sessoes')" class="bg-white rounded-2xl border border-gray-100 shadow-sm p-4 flex items-center gap-3 cursor-pointer active:scale-95 transition-all hover:shadow-md text-left">
+              <div class="w-10 h-10 rounded-xl bg-marca-50 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-marca-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <div>
+                <p class="text-xs font-display font-bold text-marca-900">Sessões</p>
+                <p class="text-[10px] font-body text-gray-500">Acompanhar</p>
+              </div>
+            </button>
+            <button onclick="mostrarTela('confirmacao-e-pagamento')" class="bg-white rounded-2xl border border-gray-100 shadow-sm p-4 flex items-center gap-3 cursor-pointer active:scale-95 transition-all hover:shadow-md text-left">
+              <div class="w-10 h-10 rounded-xl bg-marca-50 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-marca-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" stroke-width="1.5"/><path d="M1 10h22" stroke-width="1.5"/></svg>
+              </div>
+              <div>
+                <p class="text-xs font-display font-bold text-marca-900">Pagamentos</p>
+                <p class="text-[10px] font-body text-gray-500">Ver faturas</p>
+              </div>
+            </button>
+            <button onclick="mostrarTela('detalhe-do-tratamento')" class="bg-white rounded-2xl border border-gray-100 shadow-sm p-4 flex items-center gap-3 cursor-pointer active:scale-95 transition-all hover:shadow-md text-left">
+              <div class="w-10 h-10 rounded-xl bg-marca-50 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-marca-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div>
+                <p class="text-xs font-display font-bold text-marca-900">Conteúdo</p>
+                <p class="text-[10px] font-body text-gray-500">Vídeos e materiais</p>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Botão Flutuante WhatsApp -->
+      <button onclick="home_vitrine_whatsapp()" class="fixed bottom-6 right-5 z-50 w-14 h-14 rounded-full shadow-lg flex items-center justify-center active:scale-90 transition-all hover:shadow-xl" style="background:#25D366">
+        <svg class="w-7 h-7 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      </button>
+
+      <script>
+        function home_vitrine_buscar(valor) {
+          var btn = document.getElementById('home-limpar-busca');
+          if (valor.trim().length > 0) { btn.classList.remove('hidden'); btn.classList.add('flex'); } else { btn.classList.add('hidden'); btn.classList.remove('flex'); }
+          var cards = document.querySelectorAll('#home-carrossel > div');
+          var termo = valor.toLowerCase().trim();
+          var visivel = 0;
+          cards.forEach(function(c) {
+            var texto = c.textContent.toLowerCase();
+            if (termo === '' || texto.indexOf(termo) !== -1) { c.style.display = ''; visivel++; } else { c.style.display = 'none'; }
+          });
+        }
+
+        function home_vitrine_limparBusca() {
+          var inp = document.getElementById('home-busca');
+          inp.value = '';
+          home_vitrine_buscar('');
+          inp.focus();
+        }
+
+        function home_vitrine_carrossel(dir) {
+          var c = document.getElementById('home-carrossel');
+          c.scrollBy({ left: dir * 150, behavior: 'smooth' });
+        }
+
+        function home_vitrine_carrosselScroll(el) {
+          /* scroll indicator — reserved for scroll dots if needed */
+        }
+
+        function home_vitrine_whatsapp() {
+          var mensagem = encodeURIComponent('Olá! Gostaria de mais informações sobre os serviços de fisioterapia domiciliar.');
+          window.open('https://wa.me/5511999999999?text=' + mensagem, '_blank');
+          toast('Redirecionando para o WhatsApp...', 'info');
+        }
+
+        function home_vitrine_abrirDepoimento(id) {
+          var dados = {
+            ana: { nome: 'Ana Carolina Mendes', aval: 5, texto: 'Recuperei a mobilidade do joelho em 2 meses. A fisioterapeuta veio em casa todos os dias. Excelente profissionalismo e dedicação. O app facilita muito o agendamento e o acompanhamento.', servico: 'Fisioterapia Domiciliar', data: 'Dez/2025' },
+            carlos: { nome: 'Roberto Silva', aval: 4, texto: 'O atendimento pós-AVC mudou nossa vida. A equipe é extremamente qualificada e atenciosa. Meu pai voltou a andar com ajuda e hoje já faz pequenos trajetos sozinho.', servico: 'Reabilitação Neurológica', data: 'Nov/2025' },
+            patricia: { nome: 'Patrícia Lima', aval: 5, texto: 'A acupuntura aliviou minhas dores crônicas nas costas. Agendamento fácil pelo app e atendimento impecável. Já indico para todos os meus amigos e familiares.', servico: 'Acupuntura', data: 'Jan/2026' }
+          };
+          var d = dados[id];
+          if (!d) return;
+          var estrelas = '';
+          for (var i = 0; i < 5; i++) { estrelas += '<svg class="w-4 h-4 ' + (i < d.aval ? 'text-destaque' : 'text-gray-300') + '" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>'; }
+          abrirModal('<div class="text-center pt-2 pb-4"><div class="w-16 h-16 rounded-full mx-auto flex items-center justify-center mb-3" style="background:#38571A"><span class="text-white text-lg font-display font-bold">' + d.nome.split(' ').map(function(w){return w[0];}).join('') + '</span></div><p class="text-sm font-display font-bold text-marca-900">' + d.nome + '</p><p class="text-xs font-body text-gray-500">' + d.servico + ' &middot; ' + d.data + '</p><div class="flex justify-center gap-0.5 my-2">' + estrelas + '</div></div><div class="bg-gray-50 rounded-xl p-4 mb-4"><p class="text-sm font-body text-gray-700 leading-relaxed italic">"' + d.texto + '"</p></div><button onclick="fecharModal(); toast(\'Obrigado pelo feedback!\', \'ok\')" class="w-full py-3 bg-marca-500 text-white rounded-xl text-sm font-body font-bold active:scale-95 transition-all">Fechar</button>', 'Depoimento');
+        }
+      </script>
+    </section>
+
+    <!-- TELAS -->
     </main>
 
     <nav style="background:#fff; border-top:1px solid #f0f0f0; display:flex; justify-content:space-around; align-items:center; padding:0.3rem 0.15rem 0; flex-shrink:0; box-shadow:0 -2px 12px rgba(0,0,0,0.06); padding-bottom: calc(0.3rem + env(safe-area-inset-bottom, 0px));" class="safe-bottom">
